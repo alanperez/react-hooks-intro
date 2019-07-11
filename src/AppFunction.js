@@ -18,11 +18,16 @@ const App = () => {
 
     <h2>Toggle Light</h2>
     <h2>Toggle Light</h2>
-     <div 
+     <img
+      src={
+        isOn
+        ? 'https://icon.now.sh/highlight/fd0'
+        : 'https://icon.now.sh/highlight/aaa'
+      } 
       style={{
         height:'50px',
         width: '50px',
-        background: isOn ? "yellow" : "grey"
+        // background: isOn ? "yellow" : "grey"
       }}
       onClick={toggleLight}
       />
