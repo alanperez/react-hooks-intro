@@ -7,7 +7,7 @@ const App = () => {
   const incrementCount = () => {
     setCount(count + 1)
   }
-
+  useEffect
   const toggleLight = () => {
     setIsOn(prevIsOn => !prevIsOn)
   }
