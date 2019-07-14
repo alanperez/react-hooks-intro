@@ -18,6 +18,10 @@ class App extends Component {
     document.title = `U have been clicked ${this.state.count} times`
   }
 
+  componentWillMount() {
+    window.removeEventListener('mousemove', this.handleMouseMove)
+
+  }
   handleMouseMove = event => {
     this.setState({
       x: event.pageX,
