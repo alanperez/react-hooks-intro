@@ -3,13 +3,33 @@ import React, {useState, useEffect} from 'react'
 const App = () => {
   const [count,setCount] = useState(0)
   const [isOn, setIsOn] = useState(false)
+  // dedicated to mouse position
+    const [mousePosition, setMousePosition] = useState({ x: null, y: null })
 
-  const incrementCount = () => {
-    setCount(count + 1)
-  }
-  useEffect( () => {
-    document.title = `You have clicked ${count} times`
-  })
+    useEffect( () => {
+      document.title = `You have clicked ${count} times`
+      window.addEventListener('mousemove', handleMouseMove)
+
+      // replicates component will mount
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove)
+      }
+    },  [count])
+    
+
+    // handlemove func
+    const handleMouseMove = e => {
+      setMousePosition({
+        x: e.pageX,
+        y: e.pageY
+      })
+    }
+
+
+    const incrementCount = () => {
+      setCount(prevCount => prevCount + 1)
+    }
+
   const toggleLight = () => {
     setIsOn(prevIsOn => !prevIsOn)
   }
@@ -33,6 +53,10 @@ const App = () => {
       }}
       onClick={toggleLight}
       />
+
+      <h2>Mouse Position</h2>
+      {JSON.stringify(mousePosition, null, 2)}
+      <br />
     </>
   )
 }
