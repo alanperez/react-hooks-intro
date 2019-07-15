@@ -9,6 +9,8 @@ class App extends Component {
     y: null,
   }
 
+  // COMP DID MOUNT
+  // MOUNTS THE MOUSEMOVE EVENT LISTENER
   componentDidMount() {
     document.title = `U have been clicked ${this.state.count} times`
     window.addEventListener('mousemove', this.handleMouseMove)
@@ -18,6 +20,7 @@ class App extends Component {
     document.title = `U have been clicked ${this.state.count} times`
   }
 
+  // REMOVES Event Listener
   componentWillMount() {
     window.removeEventListener('mousemove', this.handleMouseMove)
 
