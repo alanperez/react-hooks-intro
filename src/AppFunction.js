@@ -26,10 +26,12 @@ const App = () => {
     }
 
 
+    //incrmements counter
     const incrementCount = () => {
       setCount(prevCount => prevCount + 1)
     }
 
+    // toggles the light
   const toggleLight = () => {
     setIsOn(prevIsOn => !prevIsOn)
   }
